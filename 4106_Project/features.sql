@@ -1,0 +1,8 @@
+BEGIN TRANSACTION;
+	ALTER TABLE corporate ADD p_e REAL;
+	ALTER TABLE corporate ADD div_yld REAL;
+	ALTER TABLE corporate ADD ma200 REAL;
+	ALTER TABLE corporate ADD ma20 REAL;
+	ALTER TABLE corporate ADD beta REAL;
+	ALTER TABLE corporate ADD relStr REAL;
+COMMIT TRANSACTION;
