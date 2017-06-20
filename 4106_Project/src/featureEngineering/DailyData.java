@@ -74,6 +74,7 @@ public class DailyData {
 		divs = new HashMap<>();
 		
 		classes = new HashMap<>();
+		returns = new HashMap<>();
 		
 		
 	}
@@ -90,7 +91,21 @@ public class DailyData {
 
 	@Override
 	public String toString(){
-		return("Date: " + df.format(date) + "BMO 200: " + ma200.get("BMO") + " BMO 20: " + ma20.get("BMO") + "\n BMO div yd :" + div_yld.get("BMO") + "  RS BMO: " + relStr.get("BMO") + " Beta: " + beta.get("BMO"));
+		String ret = "Date: " + df.format(date);
+		for(String s: new String[]{"BMO", "BNS", "CP", "CNR", "MFC", "SLF", "ENB", "TRP"}){
+			ret += s + " " + price.get(s);
+		}
+		
+		return ret;
+	}
+	
+	public String returnString(){
+		String ret = "Date: " + df.format(date);
+		for(String s: new String[]{"BMO", "BNS", "CP", "CNR", "MFC", "SLF", "ENB", "TRP"}){
+			ret += s + " " + returns.get(s);
+		}
+		
+		return ret;
 	}
 	
 	public int CompareTo(DailyData d){
