@@ -59,10 +59,23 @@ public class ParameterCalculator {
 			System.out.println(d);
 		}
 		
-		writeFeatures();
+		writeFeatures();		
+	}
+	
+	public void getReturn(String ticker){
 		
-
-		
+		for(int i = 0; i < (data.size() - 200); ++i){
+			double[] x = new double[200];
+			double[] y = new double[200];
+			for(int j = 0; j < 200; ++j){
+				x[j] = j;
+				y[j] = Math.log(data.get(i + j).price.get(ticker));
+				LinearRegression reg = new LinearRegression(x, y);
+				double val = Math.exp(reg.predict(199));
+				data.get(i+j).returns.put(ticker,  val);
+			}
+			
+		}
 	}
 	
 

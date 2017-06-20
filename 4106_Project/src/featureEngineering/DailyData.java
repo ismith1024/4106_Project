@@ -22,6 +22,7 @@ public class DailyData {
 	public HashMap<String, Double> price;
 	public HashMap<String, Double> earnings;
 	public HashMap<String, Double> divs;
+	public HashMap<String, Double> returns; //non-discounted, non dividend 200-day rate of return extrapolated from linear regression of log growth
 	
 	public HashMap<String, String> classes;
 			
@@ -50,6 +51,7 @@ public class DailyData {
 		price = new HashMap<>();
 		earnings = new HashMap<>();
 		divs = new HashMap<>();
+		returns = new HashMap<>();
 		
 		classes = new HashMap<>();
 	}
